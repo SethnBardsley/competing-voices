@@ -1,1 +1,1 @@
-"Running Client"
+yarn run dev

@@ -6,4 +6,9 @@ Set-Location $PSScriptRoot
 
 $logs = ".\logs\$($date)_Subject_$($subject)_Experiment_$($experiment).txt"
 
-python main.py $subject $date $experiment $logs
+$Env:LOG_FILE = $logs
+$Env:SUBJECT = $subject
+$Env:DATE = $date
+$Env:EXPERIMENT = $experiment
+
+python -m uvicorn main:app --host 0.0.0.0 --port 5001

@@ -1,12 +1,27 @@
-import uvicorn
-from sys import argv
+import sys
 from os import environ
 
-if __name__ == "__main__":
-    subject, date, experiment, log_file = argv[1:5]
-    environ["SUBJECT"] = subject
-    environ["DATE"] = date
-    environ["EXPERIMENT"] = experiment
-    environ["LOG_FILE"] = log_file
+subject = environ["SUBJECT"]
+experiment_date = environ["DATE"]
+experiment_name = environ["EXPERIMENT"]
 
-    uvicorn.run("app:app", host="0.0.0.0", port=5000, reload=True)
+with open(environ["LOG_FILE"], "a") as sys.stdout:
+    from typing import Union
+
+    from fastapi import FastAPI
+
+    app = FastAPI()
+
+    print("Python:Starting Server")
+
+    @app.get("/")
+    def read_root():
+        return {
+            "subject": subject,
+            "experiment_date": experiment_date,
+            "   : experiment_name,
+        }
+
+    @app.get("/items/{item_id}")
+    def read_item(item_id: int, q: Union[str, None] = None):
+        return {"item_id": item_id, "q": q}
