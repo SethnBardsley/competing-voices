@@ -12,5 +12,9 @@
 			"path": "./server"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"flake8.args": [
+			"--line-length 180"
+		]
+	}
 }
