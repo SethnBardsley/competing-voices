@@ -11,15 +11,10 @@ class Answer(BaseModel):
 
 
 class Question(BaseModel):
-    key: str
     question: str
     prompt: str
     answers: list[Answer]
     correct_answer: Answer
-
-
-class AudioFile(BaseModel):
-    filename: str
 
 
 class AudioPosition(str, Enum):
@@ -30,18 +25,22 @@ class AudioPosition(str, Enum):
 class Trial(BaseModel):
     key: str
     question: Question
-    play_audio_file: AudioFile
-    attend_audio_file: AudioFile
-    competing_audio_file: AudioFile
-    competing_position: AudioPosition
+    play_audio_file: str
+    attend_audio_file: str
+    competing_audio_file: str
+    attend_position: str
     instructions: str
 
 
 class Experiment(BaseModel):
-    key: str
     name: str
     trials: list[Trial]
 
 
 def load_experiment(experiment_name: str) -> Experiment:
-    return Experiment(key="5", name="Ex", trials=[])
+    filename = f"./experiments/{experiment_name}.json"
+
+    with open(filename, "r") as f:
+        experiment = Experiment.model_validate_json(f.read())
+
+    return experiment

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from experiment import Experiment, Trial
+from stream import stream_trial
 
 
 def create_experiment_app(experiment: Experiment, subject: str, experiment_date: str):
@@ -18,12 +19,8 @@ def create_experiment_app(experiment: Experiment, subject: str, experiment_date:
     def get_experiment():
         return experiment
 
-    @app.get("/start-trial/{key}", response_class=bool)
+    @app.get("/start-trial/{key}")
     def start_trial(*, key: str):
-        pass
-
-    @app.get("/trial-status", response_class=bool)
-    def trial_status(*, key: str):
-        return False
+        return stream_trial(key, subject, experiment, experiment_date)
 
     return app

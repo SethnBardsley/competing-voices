@@ -4,7 +4,6 @@ export interface Answer {
 }
 
 export interface Question {
-    key: string
     question: string
     prompt: string
     answers: Answer[]
@@ -17,7 +16,6 @@ export interface Trial {
 }
 
 export interface Experiment {
-    key: string
     name: string
     trials: Trial[]
 }
