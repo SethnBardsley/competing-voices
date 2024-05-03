@@ -1,10 +1,10 @@
+# Experiment.py, file for defining experiment datastructure and loading in from json files in the ./experiments/ directory.
 from __future__ import annotations
 
 from pydantic import BaseModel
 
-from enum import Enum
 
-
+# Define Validated Datastructures using pydantic
 class Answer(BaseModel):
     key: str
     text: str
@@ -15,11 +15,6 @@ class Question(BaseModel):
     prompt: str
     answers: list[Answer]
     correct_answer: Answer
-
-
-class AudioPosition(str, Enum):
-    LEFT = "left"
-    RIGHT = "right"
 
 
 class Trial(BaseModel):
@@ -37,10 +32,14 @@ class Experiment(BaseModel):
     trials: list[Trial]
 
 
+# Load in experiment using experiment name.
 def load_experiment(experiment_name: str) -> Experiment:
+    # Get filepath
     filename = f"./experiments/{experiment_name}.json"
 
+    # Open file and read contents into pydantic object
     with open(filename, "r") as f:
         experiment = Experiment.model_validate_json(f.read())
 
+    # Return pydantic object defined by file contents
     return experiment

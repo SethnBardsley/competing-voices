@@ -13,6 +13,8 @@ export interface Question {
 export interface Trial {
     key: string
     question: Question
+    attend_position: str
+    instructions: str
 }
 
 export interface Experiment {

@@ -4,7 +4,7 @@
         {
             "key": "1",
             "question": {
-                "question": "Fill in the blank.",
+                "question": "Fill in the blank in the sentence from the attended speaker.",
                 "prompt": "\"time of vague _ for some of the people\"",
                 "answers": [
                     {
