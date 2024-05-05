@@ -3,26 +3,32 @@
         {
             "key": "1",
             "attend": "left",
-            "left_transcript": "job_at_a_retailer",
+            "left_transcript": "mice",
             "left_speaker": "M",
-            "right_transcript": "learn_language",
-            "right_speaker": "F"
+            "left_speaker_db": 10,
+            "right_transcript": "miller_son",
+            "right_speaker": "F",
+            "right_speaker_db": 10
         },
         {
             "key": "2",
             "attend": "right",
-            "left_transcript": "job_at_a_retailer",
+            "left_transcript": "mice",
             "left_speaker": "M",
-            "right_transcript": "learn_language",
-            "right_speaker": "F"
+            "left_speaker_db": 10,
+            "right_transcript": "miller_son",
+            "right_speaker": "F",
+            "right_speaker_db": 14
         },
         {
             "key": "3",
             "attend": "right",
-            "left_transcript": "",
+            "left_transcript": "mice",
             "left_speaker": "M",
-            "right_transcript": "",
-            "right_speaker": "F"
+            "left_speaker_db": 14,
+            "right_transcript": "miller_son",
+            "right_speaker": "F",
+            "right_speaker_db": 10
         }
     ]
 }

@@ -62,7 +62,8 @@ def begin_stream(subject: int, experiment: Experiment, experiment_date: str):
 
         events_outlet.push_sample(["Start"], start_sample_time)
 
-        sleep(20)
+        while audio_sound.isPlaying:
+            pass
 
         audio_sound.stop()
 

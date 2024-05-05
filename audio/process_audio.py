@@ -23,7 +23,11 @@ def remove_silence(input_path: str, output_path: str) -> None:
     audio.export(output_path, "wav")
 
 
-def normalize_sound(input_path: str, output_path: str, rms_level: int = 10) -> None:
+# TODO: RMS value every 0.5 seconds calculated and used to smooth entire stimulus sound level
+# DONE: All audio normalised to same overall RMS
+
+
+def normalize_sound(input_path: str, output_path: str, rms_level: float = 10.0) -> None:
     # rms_level is in db
     rate, data = wavfile.read(input_path)
     # Method adapted from
@@ -36,9 +40,10 @@ def normalize_sound(input_path: str, output_path: str, rms_level: int = 10) -> N
     wavfile.write(output_path, rate=int(rate), data=data.astype(numpy.int16))
 
 
-def process_audio(input_path: str, output_path: str):
+def process_audio(input_path: str, output_path: str, speaker_db: float):
     remove_silence(input_path, output_path)
-    normalize_sound(output_path, output_path)
+    normalize_sound(input_path, output_path, speaker_db)
+    pass
 
 
 if __name__ == "__main__":

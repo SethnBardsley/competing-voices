@@ -42,15 +42,28 @@ def combine_audio(
     right_audio: AudioSegment = (
         right_intro + AudioSegment.silent(300, frame_rate=48000) + right_audio
     )
-    length = max(left_audio.duration_seconds, right_audio.duration_seconds)
-    left_audio = left_audio + AudioSegment.silent(
-        duration=(length - left_audio.duration_seconds) * 1000, frame_rate=48000
-    )
-    right_audio = right_audio + AudioSegment.silent(
-        duration=(length - right_audio.duration_seconds) * 1000, frame_rate=48000
-    )
-
-    print(left_audio.duration_seconds)
-    print(right_audio.duration_seconds)
+    length = max(left_audio.frame_count(), right_audio.frame_count())
+    if left_audio.frame_count() < length:
+        data = b"\0\0" * int(length - left_audio.frame_count())
+        left_audio = left_audio + AudioSegment(
+            data,
+            metadata={
+                "channels": 1,
+                "sample_width": 2,
+                "frame_rate": 48000,
+                "frame_width": 2,
+            },
+        )
+    if right_audio.frame_count() < length:
+        data = b"\0\0" * int(length - right_audio.frame_count())
+        right_audio = right_audio + AudioSegment(
+            data,
+            metadata={
+                "channels": 1,
+                "sample_width": 2,
+                "frame_rate": 48000,
+                "frame_width": 2,
+            },
+        )
     audio = AudioSegment.from_mono_audiosegments(left_audio, right_audio)
     audio.export(output_path, "wav")

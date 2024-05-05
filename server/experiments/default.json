@@ -25,7 +25,7 @@
                     "text": "optimism"
                 }
             },
-            "play_audio_file": "mockingbird_mixed.wav",
+            "play_audio_file": "1.wav",
             "attend_audio_file": "mockingbird_1.wav",
             "competing_audio_file": "mockingbird_2.wav",
             "attend_position": "left",
@@ -55,7 +55,7 @@
                     "text": "optimism"
                 }
             },
-            "play_audio_file": "mockingbird_mixed.wav",
+            "play_audio_file": "1.wav",
             "attend_audio_file": "mockingbird_1.wav",
             "competing_audio_file": "mockingbird_2.wav",
             "attend_position": "left",
