@@ -1,0 +1,28 @@
+{
+    "trials": [
+        {
+            "key": "1",
+            "attend": "left",
+            "left_transcript": "job_at_a_retailer",
+            "left_speaker": "M",
+            "right_transcript": "learn_language",
+            "right_speaker": "F"
+        },
+        {
+            "key": "2",
+            "attend": "right",
+            "left_transcript": "job_at_a_retailer",
+            "left_speaker": "M",
+            "right_transcript": "learn_language",
+            "right_speaker": "F"
+        },
+        {
+            "key": "3",
+            "attend": "right",
+            "left_transcript": "",
+            "left_speaker": "M",
+            "right_transcript": "",
+            "right_speaker": "F"
+        }
+    ]
+}
