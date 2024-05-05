@@ -20,9 +20,6 @@ class Question(BaseModel):
 class Trial(BaseModel):
     key: str
     question: Question
-    play_audio_file: str
-    attend_audio_file: str
-    competing_audio_file: str
     attend_position: str
     instructions: str
 

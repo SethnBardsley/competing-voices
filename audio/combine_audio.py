@@ -3,6 +3,8 @@ from pydub import AudioSegment
 
 def combine_audio(
     output_path: str,
+    left_output_path: str,
+    right_output_path: str,
     left_audio_path: str = "",
     left_intro_path: str = None,
     right_audio_path: str = "",
@@ -67,3 +69,5 @@ def combine_audio(
         )
     audio = AudioSegment.from_mono_audiosegments(left_audio, right_audio)
     audio.export(output_path, "wav")
+    left_audio.export(left_output_path, "wav")
+    right_audio.export(right_output_path, "wav")

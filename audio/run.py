@@ -3,6 +3,7 @@ from __future__ import annotations
 from pydantic import BaseModel
 from typing import Literal
 import os
+from glob import glob
 
 from create_audio import create_audio
 from process_audio import process_audio
@@ -11,7 +12,7 @@ from combine_audio import combine_audio
 
 class Trial(BaseModel):
     key: str
-    attend: Literal["left", "right"]
+    attend_position: Literal["left", "right"]
     left_transcript: str
     left_speaker: Literal["M", "F"]
     left_speaker_db: float
@@ -24,8 +25,12 @@ class Trials(BaseModel):
     trials: list[Trial]
 
 
-with open(".\\trials.json", "r") as f:
-    trials = Trials.model_validate_json(f.read()).trials
+paths = glob("..\\server\\experiments\\*.json")
+trials: list[Trial] = []
+
+for path in paths:
+    with open(path, "r") as f:
+        trials += Trials.model_validate_json(f.read()).trials
 
 
 def get_processed_audio(transcript: str, speaker: str, speaker_db: float):
@@ -39,16 +44,20 @@ def get_processed_audio(transcript: str, speaker: str, speaker_db: float):
 
 
 for trial in trials:
-    if trial.attend == "left":
+    if trial.attend_position == "left":
         left_intro = get_processed_audio(
             "attend", trial.left_speaker, trial.left_speaker_db
         )
         right_intro = None
+        left_output_path = f".\\attended_audio_files\\{trial.key}.wav"
+        right_output_path = f".\\competing_audio_files\\{trial.key}.wav"
     else:
         left_intro = None
         right_intro = get_processed_audio(
             "attend", trial.right_speaker, trial.right_speaker_db
         )
+        left_output_path = f".\\competing_audio_files\\{trial.key}.wav"
+        right_output_path = f".\\attended_audio_files\\{trial.key}.wav"
     left_audio = get_processed_audio(
         trial.left_transcript, trial.left_speaker, trial.left_speaker_db
     )
@@ -57,6 +66,8 @@ for trial in trials:
     )
     combine_audio(
         f".\\combined_audio_files\\{trial.key}.wav",
+        left_output_path,
+        right_output_path,
         left_audio,
         left_intro,
         right_audio,
