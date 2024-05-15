@@ -33,10 +33,14 @@ for path in paths:
         trials += Trials.model_validate_json(f.read()).trials
 
 
+def format_float(number: float):
+    return str(number).replace(".", "_")
+
+
 def get_processed_audio(transcript: str, speaker: str, speaker_db: float):
     transcript_path = f".\\transcripts\\{transcript}"
     audio_path = f".\\raw_audio_files\\{transcript}_{speaker}.wav"
-    processed_path = f".\\processed_audio_files\\{transcript}_{speaker}.wav"
+    processed_path = f".\\processed_audio_files\\{transcript}_{speaker}_{format_float(speaker_db)}.wav"
     if not os.path.isfile(audio_path):
         create_audio(transcript_path, audio_path, speaker)
     process_audio(audio_path, processed_path, speaker_db)

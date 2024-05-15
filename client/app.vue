@@ -25,6 +25,7 @@
   <div v-else class="app">
     <Next v-if="display === 'next'" />
   </div>
+  <div v-else>Waiting For Server</div>
 </template>
 
 <script setup lang="ts">
@@ -45,8 +46,18 @@ const experiment = ref<Experiment | null>(null);
 const trialNumber = ref<string>("1");
 const loading = ref(false);
 
-onMounted(async () => {
-  experiment.value = (await $axios.get<Experiment>("/experiment")).data;
+const retrieveExperiment = async () => {
+  try {
+    experiment.value = (await $axios.get<Experiment>("/experiment")).data;
+  } catch (e) {
+    setTimeout(() => {
+      retrieveExperiment();
+    }, 1000);
+  }
+};
+
+onMounted(() => {
+  retrieveExperiment();
 });
 
 const trial = computed(() =>
