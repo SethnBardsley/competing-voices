@@ -64,7 +64,7 @@ def combine_audio(
             },
         )
     if left_audio.frame_count() > length:
-        left_audio = left_audio.get_sample_slice(0, length)
+        left_audio = left_audio.get_sample_slice(0, int(length))
     if right_audio.frame_count() < length:
         data = b"\0\0" * int(length - right_audio.frame_count())
         right_audio = right_audio + AudioSegment(
@@ -77,7 +77,7 @@ def combine_audio(
             },
         )
     if right_audio.frame_count() > length:
-        right_audio = right_audio.get_sample_slice(0, length)
+        right_audio = right_audio.get_sample_slice(0, int(length))
     audio = AudioSegment.from_mono_audiosegments(left_audio, right_audio)
     audio.export(output_path, "wav")
     left_audio.export(left_output_path, "wav")

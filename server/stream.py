@@ -64,9 +64,12 @@ def begin_stream(subject: int, experiment: Experiment, experiment_date: str):
     def stream_trial(trial_key: str):
         trial = [trial for trial in experiment.trials if trial.key == trial_key][0]
 
-        play_audio_file = f"../audio/combined_audio_files/{trial_key}.wav"
-        competing_audio_file = f"../audio/competing_audio_files/{trial_key}.wav"
-        attended_audio_file = f"../audio/attended_audio_files/{trial_key}.wav"
+        if trial.single_speaker:
+            play_audio_file = f"../audio/attended_audio_files/{trial_key}.wav"
+        else:
+            play_audio_file = f"../audio/combined_audio_files/{trial_key}.wav"
+            competing_audio_file = f"../audio/competing_audio_files/{trial_key}.wav"
+            attended_audio_file = f"../audio/attended_audio_files/{trial_key}.wav"
 
         audio_sound = sound.Sound(play_audio_file)
 
@@ -86,15 +89,18 @@ def begin_stream(subject: int, experiment: Experiment, experiment_date: str):
         sr, play_data = wavfile.read(play_audio_file)
         if sr != 48000:
             raise Exception("Invalid Sample Rate")
-        sr, competing_data = wavfile.read(competing_audio_file)
-        if sr != 48000:
-            raise Exception("Invalid Sample Rate")
-        sr, attended_data = wavfile.read(attended_audio_file)
-        if sr != 48000:
-            raise Exception("Invalid Sample Rate")
+
+        if not trial.single_speaker:
+            sr, competing_data = wavfile.read(competing_audio_file)
+            if sr != 48000:
+                raise Exception("Invalid Sample Rate")
+            sr, attended_data = wavfile.read(attended_audio_file)
+            if sr != 48000:
+                raise Exception("Invalid Sample Rate")
         audio_outlet.push_chunk(play_data.tolist(), start_sample_time)
-        competing_audio_outlet.push_chunk(competing_data, start_sample_time)
-        attended_audio_outlet.push_chunk(attended_data, start_sample_time)
+        if not trial.single_speaker:
+            competing_audio_outlet.push_chunk(competing_data, start_sample_time)
+            attended_audio_outlet.push_chunk(attended_data, start_sample_time)
 
         return True
 
