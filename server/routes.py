@@ -33,7 +33,7 @@ def create_experiment_app(experiment: Experiment, subject: str, experiment_date:
     def start_trial(*, key: str):
         return stream_trial(key)
 
-    # Route to start the trial, returns True when trial is finished
+    # Route to answer the trials questions, returns nothing
     @app.get("/answer-question/{trial_key}/{answer_key}")
     def answer_question(*, trial_key: str, answer_key: str):
         with open(
@@ -41,6 +41,15 @@ def create_experiment_app(experiment: Experiment, subject: str, experiment_date:
             "a",
         ) as f:
             f.write(f"Answer to trial {trial_key}:{answer_key}\n")
+
+    # Route to self-report how well they attended to the voice on a scale of 1-5
+    @app.get("/self-report-attention/{trial_key}")
+    def attention(*, trial_key: str, value: int):
+        with open(
+            f"./logs/{experiment_date}_Subject_{subject}_Experiment_{experiment.name}.txt",
+            "a",
+        ) as f:
+            f.write(f"Attend to trial {trial_key}:{value}\n")
 
     # Return app to be run via uvicorn
     return app

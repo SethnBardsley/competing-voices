@@ -10,3 +10,7 @@ https://superkogito.github.io/blog/2020/04/30/rms_normalization.html
 ## Remove Silence
 
 https://onkar-patil.medium.com/how-to-remove-silence-from-an-audio-using-python-50fd2c00557d
+
+## SHORT STORIES
+
+https://www.libraryofshortstories.com/

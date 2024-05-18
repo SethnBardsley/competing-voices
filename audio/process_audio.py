@@ -33,7 +33,7 @@ def normalize_sound(input_path: str, output_path: str, rms_level: float = 10.0) 
 
     timestep = 2.5
     start_index = 0
-    for i in range(0, int(len(data) / rate / timestep)):
+    for i in range(0, int(len(data) / rate / timestep) + 1):
         end_index = int(min(start_index + (rate * timestep), len(data)))
         print(f"Normalising {start_index} - {end_index}")
         factor = numpy.sqrt(

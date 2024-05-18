@@ -22,6 +22,7 @@ class Trial(BaseModel):
     question: Question
     attend_position: str
     instructions: str
+    single_speaker: bool
 
 
 class Experiment(BaseModel):

@@ -7,12 +7,13 @@ from glob import glob
 
 from create_audio import create_audio
 from process_audio import process_audio
-from combine_audio import combine_audio
+from combine_audio import combine_audio, combine_audio_single
 
 
 class Trial(BaseModel):
     key: str
     attend_position: Literal["left", "right"]
+    single_speaker: bool
     left_transcript: str
     left_speaker: Literal["M", "F"]
     left_speaker_db: float
@@ -48,32 +49,42 @@ def get_processed_audio(transcript: str, speaker: str, speaker_db: float):
 
 
 for trial in trials:
-    if trial.attend_position == "left":
-        left_intro = get_processed_audio(
-            "attend", trial.left_speaker, trial.left_speaker_db
+    if trial.single_speaker:
+        intro = get_processed_audio("attend", trial.left_speaker, trial.left_speaker_db)
+        output_path = f".\\attended_audio_files\\{trial.key}.wav"
+        audio = get_processed_audio(
+            trial.left_transcript, trial.left_speaker, trial.left_speaker_db
         )
-        right_intro = None
-        left_output_path = f".\\attended_audio_files\\{trial.key}.wav"
-        right_output_path = f".\\competing_audio_files\\{trial.key}.wav"
+        combine_audio_single(output_path, audio, intro)
+
     else:
-        left_intro = None
-        right_intro = get_processed_audio(
-            "attend", trial.right_speaker, trial.right_speaker_db
+        if trial.attend_position == "left":
+            left_intro = get_processed_audio(
+                "attend", trial.left_speaker, trial.left_speaker_db
+            )
+            right_intro = None
+            left_output_path = f".\\attended_audio_files\\{trial.key}.wav"
+            right_output_path = f".\\competing_audio_files\\{trial.key}.wav"
+        else:
+            left_intro = None
+            right_intro = get_processed_audio(
+                "attend", trial.right_speaker, trial.right_speaker_db
+            )
+            left_output_path = f".\\competing_audio_files\\{trial.key}.wav"
+            right_output_path = f".\\attended_audio_files\\{trial.key}.wav"
+        left_audio = get_processed_audio(
+            trial.left_transcript, trial.left_speaker, trial.left_speaker_db
         )
-        left_output_path = f".\\competing_audio_files\\{trial.key}.wav"
-        right_output_path = f".\\attended_audio_files\\{trial.key}.wav"
-    left_audio = get_processed_audio(
-        trial.left_transcript, trial.left_speaker, trial.left_speaker_db
-    )
-    right_audio = get_processed_audio(
-        trial.right_transcript, trial.right_speaker, trial.right_speaker_db
-    )
-    combine_audio(
-        f".\\combined_audio_files\\{trial.key}.wav",
-        left_output_path,
-        right_output_path,
-        left_audio,
-        left_intro,
-        right_audio,
-        right_intro,
-    )
+        right_audio = get_processed_audio(
+            trial.right_transcript, trial.right_speaker, trial.right_speaker_db
+        )
+        combine_audio(
+            f".\\combined_audio_files\\{trial.key}.wav",
+            left_output_path,
+            right_output_path,
+            left_audio,
+            left_intro,
+            right_audio,
+            right_intro,
+            attend_left=trial.attend_position == "left",
+        )

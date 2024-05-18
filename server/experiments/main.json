@@ -1,0 +1,752 @@
+{
+    "trials": [
+        {
+            "key": "SS_1",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "cat",
+            "right_speaker": "F",
+            "attend_position": "right",
+            "right_speaker_db": 2,
+            "left_transcript": "cat",
+            "left_speaker": "M",
+            "left_speaker_db": 2,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"The _, meanwhile was afraid to stir from her nest\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "Robin"
+                    },
+                    {
+                        "key": "2",
+                        "text": "Eagle"
+                    },
+                    {
+                        "key": "3",
+                        "text": "Owl"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "2",
+                    "text": "Eagle"
+                }
+            }
+        },
+        {
+            "key": "CS_1",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "mouse",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": 0,
+            "left_transcript": "summer_day_5",
+            "left_speaker": "F",
+            "left_speaker_db": 0,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"the door of the _ opened\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "larder"
+                    },
+                    {
+                        "key": "2",
+                        "text": "bathroom"
+                    },
+                    {
+                        "key": "3",
+                        "text": "study"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "larder"
+                }
+            }
+        },
+        {
+            "key": "SS_2",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "summer_day_1",
+            "left_speaker": "M",
+            "attend_position": "left",
+            "left_speaker_db": -10,
+            "right_transcript": "summer_day_1",
+            "right_speaker": "F",
+            "right_speaker_db": -10,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"raining world to set up civilization\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "raining"
+                    },
+                    {
+                        "key": "2",
+                        "text": "barren"
+                    },
+                    {
+                        "key": "3",
+                        "text": "humid"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "raining"
+                }
+            }
+        },
+        {
+            "key": "CS_2",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "summer_day_2",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": -2,
+            "left_transcript": "frog",
+            "left_speaker": "F",
+            "left_speaker_db": 2,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"All day yesterday they had read in class about the _\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "earth"
+                    },
+                    {
+                        "key": "2",
+                        "text": "sky"
+                    },
+                    {
+                        "key": "3",
+                        "text": "sun"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "3",
+                    "text": "sun"
+                }
+            }
+        },
+        {
+            "key": "CS_3",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "summer_day_3",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": -10,
+            "right_transcript": "miller_son_2",
+            "right_speaker": "M",
+            "right_speaker_db": 0,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"if she spoke at all her voice would be a _.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "bellow"
+                    },
+                    {
+                        "key": "2",
+                        "text": "ghost"
+                    },
+                    {
+                        "key": "3",
+                        "text": "melody"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "2",
+                    "text": "ghost"
+                }
+            }
+        },
+        {
+            "key": "CS_4",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "summer_day_4",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": -5,
+            "left_transcript": "bogey_beast_1",
+            "left_speaker": "F",
+            "left_speaker_db": 5,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"No, it's not! the _ cried.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "children"
+                    },
+                    {
+                        "key": "2",
+                        "text": "crowd"
+                    },
+                    {
+                        "key": "3",
+                        "text": "attendent"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "children"
+                }
+            }
+        },
+        {
+            "key": "SS_3",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "summer_day_5",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": 5,
+            "right_transcript": "summer_day_5",
+            "right_speaker": "M",
+            "right_speaker_db": 5,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"_ happening today. Is it?\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "Something's"
+                    },
+                    {
+                        "key": "2",
+                        "text": "Nothing's"
+                    },
+                    {
+                        "key": "3",
+                        "text": "Everything's"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "2",
+                    "text": "Nothing's"
+                }
+            }
+        },
+        {
+            "key": "CS_5",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "summer_day_6",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": -5,
+            "left_transcript": "aesop",
+            "left_speaker": "F",
+            "left_speaker_db": 0,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"The _ slackened still more.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "rain"
+                    },
+                    {
+                        "key": "2",
+                        "text": "rope"
+                    },
+                    {
+                        "key": "3",
+                        "text": "wind"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "rain"
+                }
+            }
+        },
+        {
+            "key": "SS_4",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "summer_day_7",
+            "right_speaker": "F",
+            "attend_position": "right",
+            "right_speaker_db": 10,
+            "left_transcript": "summer_day_7",
+            "left_speaker": "M",
+            "left_speaker_db": 10,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"feeling the _ on their cheeks\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "sun"
+                    },
+                    {
+                        "key": "2",
+                        "text": "wind"
+                    },
+                    {
+                        "key": "3",
+                        "text": "rain"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "sun"
+                }
+            }
+        },
+        {
+            "key": "CS_6",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "summer_day_8",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": -10,
+            "right_transcript": "cat",
+            "right_speaker": "M",
+            "right_speaker_db": 10,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"They _ for an hour\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "hid"
+                    },
+                    {
+                        "key": "2",
+                        "text": "ran"
+                    },
+                    {
+                        "key": "3",
+                        "text": "slept"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "2",
+                    "text": "ran"
+                }
+            }
+        },
+        {
+            "key": "CS_7",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "summer_day_9",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": -5,
+            "left_transcript": "mouse",
+            "left_speaker": "F",
+            "left_speaker_db": 5,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"Then they closed the _\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "door"
+                    },
+                    {
+                        "key": "2",
+                        "text": "box"
+                    },
+                    {
+                        "key": "3",
+                        "text": "gate"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "door"
+                }
+            }
+        },
+        {
+            "key": "CS_8",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "summer_day_10",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": -10,
+            "left_transcript": "lion",
+            "left_speaker": "F",
+            "left_speaker_db": 10,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"They walked over to the _ door slowly and stood by it.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "classroom"
+                    },
+                    {
+                        "key": "2",
+                        "text": "bathroom"
+                    },
+                    {
+                        "key": "3",
+                        "text": "closet"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "3",
+                    "text": "closet"
+                }
+            }
+        },
+        {
+            "key": "CS_9",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "mice",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": 0,
+            "right_transcript": "summer_day_2",
+            "right_speaker": "M",
+            "right_speaker_db": 0,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"who were so hampered by the _ of their rank \"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "symbols"
+                    },
+                    {
+                        "key": "2",
+                        "text": "badges"
+                    },
+                    {
+                        "key": "3",
+                        "text": "trappings"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "2",
+                    "text": "badges"
+                }
+            }
+        },
+        {
+            "key": "CS_10",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "aesop",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": -2,
+            "left_transcript": "summer_day_6",
+            "left_speaker": "F",
+            "left_speaker_db": 2,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"Come, my boy, don’t be so _:\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "greedy"
+                    },
+                    {
+                        "key": "2",
+                        "text": "sad"
+                    },
+                    {
+                        "key": "3",
+                        "text": "distressed"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "greedy"
+                }
+            }
+        },
+        {
+            "key": "SS_5",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "miller_son_1",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": -2,
+            "right_transcript": "miller_son_1",
+            "right_speaker": "M",
+            "right_speaker_db": -2,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"He himself rides in _\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "comfort"
+                    },
+                    {
+                        "key": "2",
+                        "text": "style"
+                    },
+                    {
+                        "key": "3",
+                        "text": "peace"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "comfort"
+                }
+            }
+        },
+        {
+            "key": "CS_11",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "miller_son_2",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": -2,
+            "right_transcript": "bogey_beast_4",
+            "right_speaker": "M",
+            "right_speaker_db": 2,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"kicked and _ till he broke the ropes that bound him\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "squirmed"
+                    },
+                    {
+                        "key": "2",
+                        "text": "bucked"
+                    },
+                    {
+                        "key": "3",
+                        "text": "struggled"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "3",
+                    "text": "struggled"
+                }
+            }
+        },
+        {
+            "key": "CS_12",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "lion",
+            "left_speaker": "M",
+            "attend_position": "left",
+            "left_speaker_db": -5,
+            "right_transcript": "miller_son_1",
+            "right_speaker": "F",
+            "right_speaker_db": 5,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"you _ at me when I promised I would repay you\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "scowled"
+                    },
+                    {
+                        "key": "2",
+                        "text": "scoffed"
+                    },
+                    {
+                        "key": "3",
+                        "text": "laughed"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "3",
+                    "text": "laughed"
+                }
+            }
+        },
+        {
+            "key": "CS_13",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "bogey_beast_1",
+            "right_speaker": "F",
+            "attend_position": "right",
+            "right_speaker_db": -10,
+            "left_transcript": "summer_day_7",
+            "left_speaker": "M",
+            "left_speaker_db": 10,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"If it isn't full of gold _.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "pieces"
+                    },
+                    {
+                        "key": "2",
+                        "text": "bars"
+                    },
+                    {
+                        "key": "3",
+                        "text": "jewelery"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "pieces"
+                }
+            }
+        },
+        {
+            "key": "SS_6",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "bogey_beast_2",
+            "left_speaker": "F",
+            "attend_position": "left",
+            "left_speaker_db": -5,
+            "right_transcript": "bogey_beast_2",
+            "right_speaker": "M",
+            "right_speaker_db": -5,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"it wasn't a _ of gold at all!\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "bag"
+                    },
+                    {
+                        "key": "2",
+                        "text": "chest"
+                    },
+                    {
+                        "key": "3",
+                        "text": "pot"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "3",
+                    "text": "pot"
+                }
+            }
+        },
+        {
+            "key": "CS_14",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "bogey_beast_3",
+            "left_speaker": "M",
+            "attend_position": "left",
+            "left_speaker_db": 0,
+            "right_transcript": "summer_day_4",
+            "right_speaker": "F",
+            "right_speaker_db": 10,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"looked round to see her _ was safe.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "treasure"
+                    },
+                    {
+                        "key": "2",
+                        "text": "gold"
+                    },
+                    {
+                        "key": "3",
+                        "text": "pot"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "treasure"
+                }
+            }
+        },
+        {
+            "key": "SS_7",
+            "single_speaker": true,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "left_transcript": "bogey_beast_4",
+            "left_speaker": "M",
+            "attend_position": "left",
+            "left_speaker_db": 0,
+            "right_transcript": "bogey_beast_4",
+            "right_speaker": "F",
+            "right_speaker_db": 0,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"Quite the _ body hereabouts.\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "poorest"
+                    },
+                    {
+                        "key": "2",
+                        "text": "luckiest"
+                    },
+                    {
+                        "key": "3",
+                        "text": "strangest"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "2",
+                    "text": "luckiest"
+                }
+            }
+        },
+        {
+            "key": "CS_15",
+            "single_speaker": false,
+            "instructions": "Please Attend to the left speaker and focus on the center cross.",
+            "right_transcript": "frog",
+            "right_speaker": "M",
+            "attend_position": "right",
+            "right_speaker_db": 0,
+            "left_transcript": "summer_day_3",
+            "left_speaker": "F",
+            "left_speaker_db": 5,
+            "question": {
+                "question": "Fill in the blank.",
+                "prompt": "\"began to catch and _ the Frogs\"",
+                "answers": [
+                    {
+                        "key": "1",
+                        "text": "eat"
+                    },
+                    {
+                        "key": "2",
+                        "text": "kill"
+                    },
+                    {
+                        "key": "3",
+                        "text": "punish"
+                    }
+                ],
+                "correct_answer": {
+                    "key": "1",
+                    "text": "eat"
+                }
+            }
+        }
+    ]
+}

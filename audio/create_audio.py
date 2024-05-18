@@ -2,6 +2,7 @@ from pyt2s.services import stream_elements
 from pydub import AudioSegment
 from typing import Literal
 import os
+from glob import glob
 
 # USING StreamElements for TTS
 
@@ -28,12 +29,21 @@ def create_audio(transcript_path: str, output_path: str, speaker: Literal["M", "
 if __name__ == "__main__":
     import sys
 
-    print(sys.argv)
-    if len(sys.argv) != 4:
+    if len(sys.argv) == 1:
+        paths = glob(".\\transcripts\\*")
+
+        for input_file in paths:
+            filename = input_file.split("\\")[-1]
+            for speaker in valid_speakers.keys():
+                output_file = f".\\raw_audio_files\\{filename}_{speaker}.wav"
+                create_audio(input_file, output_file, speaker)
+
+    elif len(sys.argv) != 4:
         raise Exception(
-            "create_audio.py requires 3 positional arguments, transcript_file, output_file, speaker_number"
+            "create_audio.py requires 3 positional arguments, transcript_file, output_file, speaker_code"
         )
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
-    speaker = sys.argv[3]
-    create_audio(input_file, output_file, speaker)
+    else:
+        input_file = sys.argv[1]
+        output_file = sys.argv[2]
+        speaker = sys.argv[3]
+        create_audio(input_file, output_file, speaker)

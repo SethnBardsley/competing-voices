@@ -9,6 +9,7 @@ def combine_audio(
     left_intro_path: str = None,
     right_audio_path: str = "",
     right_intro_path: str = None,
+    attend_left: bool = None,
 ):
 
     intro_duration = 1.0
@@ -44,7 +45,13 @@ def combine_audio(
     right_audio: AudioSegment = (
         right_intro + AudioSegment.silent(300, frame_rate=48000) + right_audio
     )
-    length = max(left_audio.frame_count(), right_audio.frame_count())
+    if attend_left is None:
+        length = max(left_audio.frame_count(), right_audio.frame_count())
+    elif attend_left:
+        length = left_audio.frame_count()
+    else:
+        length = right_audio.frame_count()
+
     if left_audio.frame_count() < length:
         data = b"\0\0" * int(length - left_audio.frame_count())
         left_audio = left_audio + AudioSegment(
@@ -56,6 +63,8 @@ def combine_audio(
                 "frame_width": 2,
             },
         )
+    if left_audio.frame_count() > length:
+        left_audio = left_audio.get_sample_slice(0, length)
     if right_audio.frame_count() < length:
         data = b"\0\0" * int(length - right_audio.frame_count())
         right_audio = right_audio + AudioSegment(
@@ -67,7 +76,26 @@ def combine_audio(
                 "frame_width": 2,
             },
         )
+    if right_audio.frame_count() > length:
+        right_audio = right_audio.get_sample_slice(0, length)
     audio = AudioSegment.from_mono_audiosegments(left_audio, right_audio)
     audio.export(output_path, "wav")
     left_audio.export(left_output_path, "wav")
     right_audio.export(right_output_path, "wav")
+
+
+def combine_audio_single(
+    output_path: str,
+    audio_path: str = "",
+    intro_path: str = None,
+):
+    if intro_path:
+        intro: AudioSegment = AudioSegment.from_file(intro_path, "wav").split_to_mono()[
+            0
+        ]
+    audio: AudioSegment = AudioSegment.from_file(audio_path, "wav").split_to_mono()[0]
+
+    if intro_path:
+        audio: AudioSegment = intro + AudioSegment.silent(300, frame_rate=48000) + audio
+
+    audio.export(output_path, "wav")

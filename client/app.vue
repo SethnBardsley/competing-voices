@@ -7,9 +7,14 @@
         / {{ experiment.trials.length }}
       </div>
       <div class="next-container">
-        <button v-if="experiment" class="button-style" @click="beginTrial">
+        <button
+          v-if="experiment && startButton"
+          class="button-style"
+          @click="beginTrial"
+        >
           Begin Trial
         </button>
+        <div v-else>Please Wait</div>
       </div>
     </div>
     <Focus v-if="display === 'focus' || display === 'prompt'" />
@@ -45,6 +50,7 @@ const display = ref<Display>("next");
 const experiment = ref<Experiment | null>(null);
 const trialNumber = ref<string>("1");
 const loading = ref(false);
+const startButton = ref(false);
 
 const retrieveExperiment = async () => {
   try {
@@ -95,6 +101,10 @@ const answerQuestion = async (answer: Answer) => {
     display.value = "end";
   } else {
     display.value = "next";
+    startButton.value = false;
+    setTimeout(() => {
+      startButton.value = true;
+    }, 15000);
   }
 };
 </script>
