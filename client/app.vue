@@ -24,6 +24,11 @@
       :loading="loading"
       @answer="answerQuestion"
     />
+    <TrialTracking
+      v-if="display === 'tracking' && trial"
+      :loading="loading"
+      @answer="answerTracking"
+    />
     <TrialPrompt v-if="display === 'prompt' && trial" :trial="trial" />
     <End v-if="display === 'end'" />
   </div>
@@ -44,7 +49,13 @@ const $axios = axios.create({
   },
 });
 
-export type Display = "next" | "focus" | "question" | "prompt" | "end";
+export type Display =
+  | "next"
+  | "focus"
+  | "question"
+  | "tracking"
+  | "prompt"
+  | "end";
 
 const display = ref<Display>("next");
 const experiment = ref<Experiment | null>(null);
@@ -92,10 +103,18 @@ const beginTrial = async () => {
 
 const answerQuestion = async (answer: Answer) => {
   loading.value = true;
-  await await $axios.get<Experiment>(
-    `/answer-question/${trial.value?.key}/${answer.key}`
+  await $axios.get(`/answer-question/${trial.value?.key}/${answer.key}`);
+  loading.value = false;
+  display.value = "tracking";
+};
+
+const answerTracking = async (answer: number) => {
+  loading.value = true;
+  await $axios.get(
+    `/self-report-attention/${trial.value?.key}?value=${answer}`
   );
   loading.value = false;
+
   trialNumber.value = String(parseInt(trialNumber.value) + 1);
   if (parseInt(trialNumber.value) > (experiment.value?.trials.length || 0)) {
     display.value = "end";
